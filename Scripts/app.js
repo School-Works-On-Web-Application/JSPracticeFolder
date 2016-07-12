@@ -1,32 +1,30 @@
 /* main JavaScript file */
 // IIFE - Immediately Invoked Function Expression
-(function(){
+(function () {
     "use strict";
-    
-    // define an array of HTML elements
+
+    //Define array of html elements
     var paragraphElements = [];
-    
+
     paragraphElements[0] = document.getElementById("paragraphOne");
     paragraphElements[1] = document.getElementById("paragraphTwo");
     paragraphElements[2] = document.getElementById("paragraphThree");
-    
-    // define your paragraphs array;
-    var paragraphs = [];
-    
-    // data for my pages
-    paragraphs[0] = "This is my first paragraph. It is only visible on the first page. This next sentence is to prove that this really works!!!";
-    paragraphs[1] = "This is my second paragraph. It is only visible on the second page";
-    paragraphs[2] = "This is my third paragraph. It is only visible on the third page";
-    
-    // second way to define an array
-    //var paragraphs = new Array();
-    
-    // check to see if paragraph one exists
+
+    //Define paragraph array 
+    var paragraph = [];
+
+    paragraph[0] = "This is my first paragraph and only visible in the first page. <br>This next sentence to prove it is actually work.";
+    paragraph[1] = "This is my second paragraph and only visible in the second page. <br>This next sentence to prove paragraph two is actually work.";
+    paragraph[2] = "This is my third paragraph and only visible in the third page. <br>This next sentence to prove paragraph three is actually work.";
+
+
+
+    //check to see if paragraph exists +++++++++++++++++++++++++++++++++++++
     for (var index = 0; index < paragraphElements.length; index++) {
-        if(paragraphElements[index]) {
-         paragraphElements[index].textContent = paragraphs[index];
+        if (paragraphElements[index]) {
+            paragraphElements[index].innerHTML = paragraph[index];
+            console.log("App running");
         }
+
     }
-    
-    
 })();
