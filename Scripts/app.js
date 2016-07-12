@@ -2,78 +2,31 @@
 // IIFE - Immediately Invoked Function Expression
 (function(){
     "use strict";
-    var firstPTag = document.getElementById("firstParagraph");
     
-    // event listener click
-    firstPTag.addEventListener("click", firstParagraphClicked);
+    // define an array of HTML elements
+    var paragraphElements = [];
     
-    // event listener hover
-    firstPTag.addEventListener("mouseover", firstParagraphHover);
+    paragraphElements[0] = document.getElementById("paragraphOne");
+    paragraphElements[1] = document.getElementById("paragraphTwo");
+    paragraphElements[2] = document.getElementById("paragraphThree");
     
-    var firstParagraphIsClicked = false;
-    var firstParagraphWasHovered = false;
+    // define your paragraphs array;
+    var paragraphs = [];
     
-    // code codes in here 
-    console.log("App Started...");
+    // data for my pages
+    paragraphs[0] = "This is my first paragraph. It is only visible on the first page. This next sentence is to prove that this really works!!!";
+    paragraphs[1] = "This is my second paragraph. It is only visible on the second page";
+    paragraphs[2] = "This is my third paragraph. It is only visible on the third page";
     
-    var myFirstParagraph = "This is my first paragraph. I am writing this for demonstration purposes. " +
-    "This is the third sentence of my first paragraph";
+    // second way to define an array
+    //var paragraphs = new Array();
     
-    
-    // declare named function
-    function writeToFirstParagraph() {
-        // for debugging only
-        console.log("Executing writeToFirstParagraph");
-        
-        // create a reference to a p element with an id of "firstParagraph"
-        
-    
-        firstPTag.textContent = myFirstParagraph;
-      
-    }
-    
-    // event handler for firstParagraph clicked
-    function firstParagraphClicked() {
-        if(firstParagraphIsClicked) {
-            firstPTag.style.color = "#000000";
-            firstParagraphIsClicked = false;
-        } else {
-            firstPTag.style.color = "#FF0000";
-            firstParagraphIsClicked = true;
+    // check to see if paragraph one exists
+    for (var index = 0; index < paragraphElements.length; index++) {
+        if(paragraphElements[index]) {
+         paragraphElements[index].textContent = paragraphs[index];
         }
     }
-    
-    // event handler for firstParagraph hover
-    function firstParagraphHover() {
-        if(firstParagraphWasHovered) {
-            firstPTag.style.color = "#000000";
-            firstParagraphWasHovered = false;
-        } else {
-            firstPTag.style.color = "#00FF00";
-            firstParagraphWasHovered = true;
-        }
-    }
-   
-    
-    /*
-    // declare a variable that points to anonymous function
-    var writeToFirstParagraph = function() {
-        // for debugging only
-        console.log("Executing writeToFirstParagraph");
-        
-        // create a reference to a p element with an id of "firstParagraph"
-        var firstPTag = document.getElementById("firstParagraph");
-    
-        firstPTag.textContent = "It's alive!!!";
-    } 
-    */
-   
-    
-    
-    // execute function
-    writeToFirstParagraph();
-    
-    //console.log(firstPTag);
     
     
 })();
