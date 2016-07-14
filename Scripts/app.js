@@ -1,32 +1,86 @@
-/* main JavaScript file */
 // IIFE - Immediately Invoked Function Expression
-(function () {
+(function(){
     "use strict";
-
-    //Define array of html elements
+    
+    /* this is a test for Cloud 9 */
+    
+    // define an array of HTML elements
     var paragraphElements = [];
-
+    
+    // second way to define an array
+    //var paragraphs = new Array();
+    
     paragraphElements[0] = document.getElementById("paragraphOne");
     paragraphElements[1] = document.getElementById("paragraphTwo");
     paragraphElements[2] = document.getElementById("paragraphThree");
-
-    //Define paragraph array 
-    var paragraph = [];
-
-    paragraph[0] = "<span class='firstSentence'>This is my first paragraph.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a facilisis neque, a malesuada turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum bibendum mi ut imperdiet. Vivamus vitae odio posuere, pellentesque leo in, dapibus lacus. Phasellus dignissim tincidunt commodo. Nam ipsum justo, porttitor fermentum pulvinar a, mattis sit amet ex. Donec ut purus non lacus viverra viverra quis eu nisi. Praesent porta, ex nec tincidunt ornare, velit est pharetra nulla, a gravida felis enim at purus. Fusce volutpat pharetra dui sed egestas. Nunc at velit eu lacus accumsan consectetur. Fusce auctor sodales mollis. Phasellus feugiat enim eu ipsum interdum euismod ut sit amet justo. Quisque maximus odio nibh, varius scelerisque ante dictum vitae. Praesent blandit mollis mauris, eu sodales lectus egestas mattis. Nunc ut diam sagittis, elementum sapien sit amet, volutpat tellus. Proin consectetur diam vel tincidunt ullamcorper.";
-    paragraph[1] = "<span class='firstSentence'>This is my second paragraph.</span> Vivamus ullamcorper erat at urna posuere, a porta tortor viverra. Nam suscipit dictum turpis et auctor. Aenean quis cursus dui. Mauris cursus, enim malesuada euismod tincidunt, tortor lacus vulputate diam, non sollicitudin odio ipsum maximus dui. Nam tincidunt ornare risus, sit amet porta metus semper quis. Mauris condimentum augue nibh, pharetra vestibulum lacus lobortis sit amet. Mauris vitae lacus sodales, faucibus libero sed, ornare risus. Sed ac enim ante. Ut sollicitudin malesuada pharetra. Aenean cursus eu leo eget interdum. Donec placerat ligula metus, et dapibus sem dapibus ac. In laoreet posuere erat, eget mattis ipsum rhoncus et. Quisque porttitor vel ante id cursus. Nullam congue vulputate lobortis. Proin ut lectus ut lorem sagittis convallis laoreet eu risus.";
-    paragraph[2] = "<span class='firstSentence'>This is my third paragraph.</span> Duis ac magna condimentum, pretium justo sit amet, sollicitudin nisi. Donec vestibulum lorem at luctus sagittis. Morbi ac ullamcorper lacus, eget elementum nibh. Duis velit lorem, molestie vel nisi a, scelerisque faucibus lorem. Sed condimentum condimentum lacinia. Vestibulum eu vehicula nunc. Duis pharetra nulla vitae leo interdum, sed posuere felis dapibus. Aenean eget leo eget justo tincidunt efficitur. Cras semper metus nec rhoncus tempor. Vivamus finibus, arcu vitae fringilla suscipit, mi enim maximus sem, nec feugiat est ligula in urna. Donec id diam nec diam tristique rutrum. Morbi nec vehicula nibh. Vestibulum mattis augue mauris, at varius nisl mattis id. Ut ut odio sed neque varius accumsan non at augue. Ut nec fringilla magna, eget suscipit magna. In hac habitasse platea dictumst.";
-
-
-
-    //check to see if paragraph exists +++++++++++++++++++++++++++++++++++++
-    var paragraphElementsLength = paragraphElements.length - 1; 
-    for (var index = paragraphElementsLength; index >= 0; index--) {
-        console.log(index); 
-        if (paragraphElements[index]) {
-            paragraphElements[index].innerHTML = paragraph[index];
-            console.log("#"+index + " App running");
-        }
-
+    
+    // define your paragraphs array;
+    var paragraphs = [];
+    
+    // create a reference to the sendButton
+    var sendButton = document.getElementById("sendButton");
+    
+    // check to see if sendButton exists
+    if(sendButton) {
+        // event listener
+        sendButton.addEventListener("click", sendButtonClick);
     }
+    
+    
+    // event handler function
+    function sendButtonClick(event) {
+        console.log("clicked!");
+    }
+    
+    // create a reference to the firstName field
+     var firstName = document.getElementById("firstName");
+    
+    // create a reference to the form
+    var contactForm = document.getElementById("contactForm");
+    
+    
+    if(contactForm) {
+        // event listener with inline anonymous event handler function
+        contactForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            console.log("submitted");
+            showFormInput();
+            contactForm.reset();
+        });
+    }
+    
+    /**
+     * This function shows the input from each form field 
+     * on the console
+     * 
+     * @method showFormInput
+     * @return {void} 
+     */
+    function showFormInput() {
+        console.log("++++++++++++++++++++++++++++++++");
+        console.log("First Name: " + firstName.value);
+        console.log("++++++++++++++++++++++++++++++++");
+    }
+    
+   
+    
+    
+    // data for my pages
+    paragraphs[0] = "<span class='firstSentence'>This is my first paragraph.</span> It is only visible on the first page. This next sentence is to prove that this really works!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis venenatis eros nec viverra. Aenean egestas sit amet dui eget ultrices. Ut vitae ullamcorper risus. Aenean risus eros, laoreet eu luctus pharetra, luctus et massa. Cras ullamcorper erat in justo malesuada pulvinar. Ut ac sollicitudin lorem, ut mattis ipsum. Maecenas commodo efficitur quam, et suscipit eros faucibus id. Suspendisse ut urna odio. Morbi euismod nec dui vel tempor. Ut vehicula libero odio, vel tempus eros scelerisque non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras efficitur porta mauris ac aliquet. Curabitur et sollicitudin ex.";
+    paragraphs[1] = "<span class='firstSentence'>This is my second paragraph.</span> It is only visible on the second page. Nam commodo sodales porttitor. Proin sed purus ex. Sed id tortor massa. Vestibulum gravida sollicitudin accumsan. Proin ultricies ornare quam in feugiat. In mattis lorem at felis commodo, vel pellentesque ante varius. Cras rutrum efficitur bibendum. In sit amet ante est. Curabitur ullamcorper, enim vel aliquam pretium, quam ex tristique lacus, sed dapibus sapien est quis tellus. Cras rhoncus tempus dui a porta. Quisque est risus, vulputate vel ligula non, elementum bibendum neque. Vestibulum vel tellus porta, laoreet lacus nec, porttitor sapien. Proin ex metus, vehicula vitae nisi non, efficitur ultrices urna.";
+    paragraphs[2] = "<span class='firstSentence'>This is my third paragraph.</span> It is only visible on the third page. Vestibulum ac placerat neque. Nulla eu turpis quis purus pulvinar mollis. Aliquam erat volutpat. Vestibulum egestas, felis ac posuere tincidunt, urna tellus condimentum sem, non iaculis enim ante ut orci. Morbi mattis orci diam, vel vulputate nisi tincidunt sed. Nunc vitae commodo est. Morbi eu mauris quam. Nunc odio orci, blandit a eros egestas, volutpat dapibus turpis. Nunc at metus in urna bibendum euismod sit amet et mauris. Nulla tempor nisi vel nisl sodales, in aliquam dui feugiat. Sed ullamcorper nibh cursus, posuere metus sit amet, suscipit urna. Aenean blandit augue sit amet ligula elementum, eget congue sapien tincidunt. In blandit bibendum velit, varius faucibus leo consequat non.";
+    
+    
+    
+    // check to see if paragraph one exists
+    var paragraphElementsLength = paragraphElements.length;
+    
+    // if paragraph exists then populate each paragraph on the page
+    for (var index = paragraphElementsLength; index >= 0; index--) {
+        if(paragraphElements[index]) {
+         paragraphElements[index].innerHTML = paragraphs[index];
+        }
+    }
+    
+    
 })();
